@@ -8,7 +8,7 @@ module.exports = {
      
       await queryInterface.createTable('users', { 
         id:{
-          type:Sequelize.INTEGER, 
+          type:Sequelize.STRING, 
           allowNull:false,
           primaryKey:true,
           autoIncrement:false
@@ -28,7 +28,7 @@ module.exports = {
           allowNull:false,
         },
         phone:{
-          type:Sequelize.INTEGER,
+          type:Sequelize.STRING,
           allowNull:false,
           unique:true
         },
@@ -37,6 +37,18 @@ module.exports = {
           type:Sequelize.INTEGER,
            defaultValue:0
          
+        },
+        location: {
+          type:Sequelize.JSONB({
+            city: Sequelize.STRING,
+            street: Sequelize.STRING,
+            place: Sequelize.STRING,
+            floor: Sequelize.INTEGER,
+            address: Sequelize.TEXT,
+            lat: Sequelize.FLOAT,
+            lng: Sequelize.FLOAT,
+          }),
+          defaultValue: {},
         },
         
         verified:{

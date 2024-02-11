@@ -1,7 +1,7 @@
 require('dotenv').config();
-const nodeEnv = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'development';
 
-module.exports ={
+module.exports={
   development: {
     username:process.env.db_userName,
     password:process.env.db_password,
@@ -29,4 +29,5 @@ module.exports ={
     dialect:"postgres",
     migrationStorageTableName:"migrations"
   }
-}[nodeEnv]
+}[env]
+
